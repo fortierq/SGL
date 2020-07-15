@@ -1,0 +1,7 @@
+digraph "Graphical Class Hierarchy"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="sgl::Bellman\< true,\l type_wt, Edge, Graph,\l Tree \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsgl_1_1_bellman_3_01true_00_01type__wt_00_01_edge_00_01_graph_00_01_tree_01_4.html"];
+}
