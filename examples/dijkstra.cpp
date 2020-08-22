@@ -21,7 +21,7 @@ int main()
 	dijkstra(0);
 
 	cout<<"Vertex\t Distance to 0"<<endl;
-	for(int i = 0; i < dijkstra.dist.size(); i++)
+	for(size_t i = 0; i < dijkstra.dist.size(); i++)
 		cout<<i<<"\t "<<dijkstra.dist[i]<<endl;
 
 	/*! The shortest path tree is stored in dijkstra.SPT */
