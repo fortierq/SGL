@@ -22,13 +22,6 @@ namespace sgl
 	class Kruskal
 	{
 		const Graph& G;
-		class compare {
-		public:
-			compare(void) {}
-			bool operator()(Edge*& e1, Edge*& e2) {
-				return e1->wt() > e2->wt();
-			}
-		};
 	public:
 		bool sameEdges;
 		/*! Minimum spanning tree giving predecessors, from leafs to root
@@ -84,14 +77,6 @@ namespace sgl
 	class Prim
 	{
 		const Graph& G;
-		typedef std::pair<int, Edge*> elem; // Vertex, edge giving the predecessor
-		class compare {
-		public:
-			compare(void) {}
-			bool operator()(const elem& e1, const elem& e2) {
-				return e1.second->wt() > e2.second->wt();
-			}
-		};
 	public:
 		bool sameEdges;
 		/*! Minimum spanning tree giving predecessors, from leafs to root
