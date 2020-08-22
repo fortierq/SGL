@@ -7,16 +7,16 @@ using namespace std;
 using namespace sgl;
 
 /* Processor for BFS, makes the ordered list of visited vertices */
-class ListVisited : public Proc_Base<>
-{
-public :
-	list<int> visited;
-	ListVisited(int V) : Proc_Base<>(V), visited() { }
-	bool trait(int i)
-	{
-		visited.push_back(i);
+class ListVisited : public Proc_Base<> 
+{ 
+public : 
+	list<int> visited; 
+	ListVisited(int V) : Proc_Base<>(V), visited() { } 
+	bool trait(int i) 
+	{ 
+		visited.push_back(i); 
 		return false;
-	}
+	} 
 };
 
 int main()
@@ -35,9 +35,9 @@ int main()
 	cout<<"Vertices visited in this order:"<<endl;
 	for(list<int>::iterator it = l.visited.begin(); it != l.visited.end(); ++it)
 		cout<<*it<<endl;
-
+	
 	return 0;
 }
 
-/*!
+/*! 
 See also Proc */
