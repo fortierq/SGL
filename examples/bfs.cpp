@@ -1,5 +1,5 @@
-#include "../Structures.h"
-#include "../Search.h"
+#include "Structures.h"
+#include "Search.h"
 #include <iostream>
 #include <list>
 

@@ -1,13 +1,11 @@
 IDIR =../include
 CC=g++
+CFLAGS=-I$(IDIR)
 
 all: bellman bfs dfs dijkstra fulkerson mincut prim
 
 %: %.cpp
-	$(CC) -o $@ $^ 
+	$(CC) -o $@ $^ $(CFLAGS)
 
 clean:
 	rm -f *.o *~
-
-#bellman: bellman.cpp
-#	g++ bellman.cpp -o bellman
