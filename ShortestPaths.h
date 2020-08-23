@@ -37,7 +37,7 @@ namespace sgl
 		bool operator()()
 		{
 			int nEdges = 0; // How many edges we added to the MST?
-			std::priority_queue<Edge*, std::vector<Edge*>, std::greater> Q; // Sort edges with respect to weights
+			std::priority_queue<Edge*, std::vector<Edge*>, std::greater<Edge*> > Q; // Sort edges with respect to weights
 			SearchVertex<Edge> proc(MST.V(), 0);
 			BFS<Edge, SearchVertex<Edge>, Tree> bfs(MST, proc);
 			typename Graph::iterator_all it(G);
@@ -91,8 +91,8 @@ namespace sgl
 		bool operator()(int source = 0)
 		{
 			std::vector<type_wt> wt(G.V(), max_val<type_wt>()); // wt[v] : cost to add v in the MST
-			int nEdges = 0; // How many edges we added to the MST?
-			std::priority_queue<elem, std::vector<elem> > S;
+			int nEdges = 0; // Number of edges added to the MST
+			std::priority_queue<int, Edge> S;
 			wt[source] = 0;
 			typename Graph::iterator it(G, source);
 			for (Edge* e = it.beg(); !it.end(); e = it.nxt())
@@ -229,7 +229,7 @@ namespace sgl
 				typename Graph::iterator it(G, v);
 				for (Edge* e = it.beg(); !it.end(); e = it.nxt())
 				{
-					int w = e->other(v); // attention 
+					int w = e->other(v); // attention
 					type_wt P = dist[v] + e->wt(); /*! \todo Manage infinite weights */
 					if (P < dist[w])
 					{
@@ -275,7 +275,7 @@ namespace sgl
 					typename Graph::iterator it(G, v);
 					for (Edge* e = it.beg(); !it.end(); e = it.nxt())
 					{
-						int w = e->other(v); // warning 
+						int w = e->other(v); // warning
 						type_wt P = dist[v] + e->wt();
 						if (P < dist[w])
 						{
@@ -313,7 +313,7 @@ namespace sgl
 		std::set<int>* toAdd; // std::set � ajouter dans D_next
 		const Graph& G;
 		std::queue<std::set<int> > ensembles;
-		std::map<std::set<int>, std::vector<type_wt> >* D_last, * D_next;    // D[{i1, ..., ip}][j] : distance d'un plus court chemin partant de j, passant une et 
+		std::map<std::set<int>, std::vector<type_wt> >* D_last, * D_next;    // D[{i1, ..., ip}][j] : distance d'un plus court chemin partant de j, passant une et
 		// une seule fois en i1, ..., ip et finissant en 0 (ik != 0, j != 0)
 	public:
 		TSP(const Graph& G) : G(G), D_last(0), D_next(0) { };
@@ -327,7 +327,7 @@ namespace sgl
 			std::set<int>::iterator toDelete = toAdd->begin();
 			int tmp = *toDelete;
 			(*toAdd).erase(toDelete);
-			min_ = std::min<type_wt>(min_, G.edge(j, tmp)->wt() + (*D_last)[(*toAdd)][tmp - 1]); // tmp n'appartient pas � (*toAdd) 
+			min_ = std::min<type_wt>(min_, G.edge(j, tmp)->wt() + (*D_last)[(*toAdd)][tmp - 1]); // tmp n'appartient pas � (*toAdd)
 			last = (*toAdd).insert(toAdd->begin(), tmp); // bof ..
 			if (*last == maj_val)
 			{
@@ -341,7 +341,7 @@ namespace sgl
 				{
 					tmp = *toDelete;
 					(*toAdd).erase(toDelete);
-					min_ = std::min<type_wt>(min_, G.edge(j, tmp)->wt() + (*D_last)[(*toAdd)][tmp - 1]); // tmp n'appartient pas � (*toAdd) 
+					min_ = std::min<type_wt>(min_, G.edge(j, tmp)->wt() + (*D_last)[(*toAdd)][tmp - 1]); // tmp n'appartient pas � (*toAdd)
 					last = (*toAdd).insert(last, tmp);
 					toDelete = ++last;
 					--last; // bof..
@@ -356,7 +356,7 @@ namespace sgl
 			{
 				tmp = *toDelete;
 				(*toAdd).erase(toDelete);
-				min_ = std::min<type_wt>(min_, G.edge(j, tmp)->wt() + (*D_last)[(*toAdd)][tmp - 1]); // tmp n'appartient pas � (*toAdd) 
+				min_ = std::min<type_wt>(min_, G.edge(j, tmp)->wt() + (*D_last)[(*toAdd)][tmp - 1]); // tmp n'appartient pas � (*toAdd)
 				last = (*toAdd).insert(last, tmp);
 				toDelete = ++last;
 				--last; // bof..

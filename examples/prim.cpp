@@ -1,6 +1,6 @@
 #include <iostream>
-#include "..\Structures.h"
-#include "..\ShortestPaths.h"
+#include "../Structures.h"
+#include "../ShortestPaths.h"
 
 using namespace std;
 using namespace sgl;

@@ -1,10 +1,10 @@
 #include <iostream>
 #include <list>
 #include <iterator>
-#include "..\Structures.h"
-#include "..\Search.h"
-#include "..\Flow.h"
-#include "..\IO.h"
+#include "../Structures.h"
+#include "../Search.h"
+#include "../Flow.h"
+#include "../IO.h"
 
 using namespace std;
 using namespace sgl;

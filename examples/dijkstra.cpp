@@ -1,13 +1,13 @@
 #include <iostream>
-#include "..\Structures.h"
-#include "..\ShortestPaths.h"
+#include "../Structures.h"
+#include "../ShortestPaths.h"
 
 using namespace std;
 using namespace sgl;
 
 int main()
 {
-	Graph_List<Edge_Weight<> > G(5, true); 
+	Graph_List<Edge_Weight<> > G(5, true);
 	G.insert(new Edge_Weight<>(0,1,1));
 	G.insert(new Edge_Weight<>(1,3,6));
 	G.insert(new Edge_Weight<>(3,0,3));
