@@ -14,8 +14,8 @@
 #include "Structures.h"
 #include "Search.h"
 #include "Flow.h"
-#include <stdlib.h>     /* srand, rand */
-#include <time.h>       /* time */
+#include <stdlib.h>    
+#include <time.h>      
 #include "IO.h"
 
 namespace sgl
@@ -28,7 +28,7 @@ namespace sgl
 		// Complete splitting at v. G_split has G.V() - 1 vertices
 		static void split(const Graph &G, Graph &G_split1, Graph &G_split2, int v)
 		{
-			// Trouver les edges concernés
+			// Trouver les edges concernÃ©s
 			Edge *e1, *e2, *e_1, *e_2;
 			e1 = e2 = e_1 = e_2 = NULL;
 			Graph::iterator_all it(G);
@@ -151,7 +151,7 @@ namespace sgl
 
 		int edge_connectivity()
 		{
-			Graph_List<Edge_Flow<int> > G_(G.V(), false); // non orienté
+			Graph_List<Edge_Flow<int> > G_(G.V(), false); // non orientÃ©
 			Graph_List<Edge>::iterator_all it(G);
 			for(Edge *e = it.beg(); !it.end(); e = it.nxt())
 				G_.insert(new Edge_Flow<>(e->v(), e->w(), 1));
