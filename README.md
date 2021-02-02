@@ -1,3 +1,5 @@
+*This library was developed from 2010 to 2013 and is not maintained : the code might be outdated.*
+
 # SGL
 SGL (Simple Graph Library) is a C++ library allowing manipulation of graphs, in a generic way. 
 
