@@ -5,6 +5,8 @@ SGL (Simple Graph Library) is a C++ library allowing manipulation of graphs, in 
 
 SGL includes the following:
 
+- graph manipulation
+
 - graph traversals (DFS, BFS)
 
 - shortest path algorithms (Dijkstra, Floyd-Warshall, Bellman-Ford)
